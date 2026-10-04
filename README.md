@@ -1,4 +1,4 @@
-# LUMEN
+# PRISM
 
 A zero-dependency, multithreaded path tracer written in Rust.
 

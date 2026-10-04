@@ -1,9 +1,9 @@
-//! LUMEN - a zero-dependency, multithreaded path tracer.
+//! PRISM - a zero-dependency, multithreaded path tracer.
 //!
 //! Features: diffuse / metal / glass / emissive materials, depth of field,
 //! gamma-correct output, a hand-written PNG encoder, and a procedural scene.
 //!
-//! Usage: lumen [width] [samples_per_pixel] [output.png]
+//! Usage: prism [width] [samples_per_pixel] [output.png]
 
 use std::fs::File;
 use std::io::Write;
@@ -448,7 +448,7 @@ fn main() {
     let cam = Arc::new(Camera::new(from, at, v(0.0, 1.0, 0.0), 28.0, width as f64 / height as f64, 0.12, (from - at).len()));
 
     let threads = thread::available_parallelism().map(|n| n.get()).unwrap_or(4);
-    println!("LUMEN | {}x{} | {} spp | {} threads | {} spheres", width, height, spp, threads, world.len());
+    println!("PRISM | {}x{} | {} spp | {} threads | {} spheres", width, height, spp, threads, world.len());
 
     let image = Arc::new(Mutex::new(vec![0u8; width * height * 3]));
     let next_row = Arc::new(AtomicUsize::new(0));
